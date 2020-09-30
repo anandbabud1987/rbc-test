@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "c35e5a44-0cd0-4a38-aa3f-de3e4bbd958d",
+		"name": "rbc-test-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bulk upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bulk_data",
+							"type": "file",
+							"src": "/C:/Users/anand/Downloads/dow_jones_index/dow_jones_index.data"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/datasets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"datasets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query by stock AA",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/datasets?stock=AA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"datasets"
+					],
+					"query": [
+						{
+							"key": "stock",
+							"value": "AA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new record",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"quarter\":\"Q2\",\r\n\"stock\":\"Anand\",\r\n\"date\":\"Q2\",\r\n\"open\":\"Q2\",\r\n\"high\":\"$1231\",\r\n\"low\":\"$7777\",\r\n\"close\":\"Q2\",\r\n\"volume\":\"Q2\",\r\n\"percent_change_price\":\"Q2\",\r\n\"percent_change_volume_over_last_wk\":\"Q2\",\r\n\"previous_weeks_volume,next_weeks_open\":\"Q2\",\r\n\"next_weeks_close\":\"Q2\",\r\n\"percent_change_next_weeks_price\":\"Q2\",\r\n\"days_to_next_dividend,\":\"Q2\",\r\n\"percent_return_next_dividend\":\"Q2\"}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/datasets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"datasets"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
